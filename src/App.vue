@@ -1,9 +1,7 @@
 <template>
-  <div id="bg">
-    <div id="app">
-      <navigation :routes="routes" />
-      <router-view />
-    </div>
+  <div id="app">
+    <navigation :routes="routes" />
+    <router-view />
   </div>
 </template>
 
@@ -23,13 +21,6 @@ export default defineComponent({
 </script>
 
 <style>
-#bg {
-  padding: 0;
-  margin: 0;
-  height: 99vh;
-  width: 99vw;
-}
-
 #app {
   padding: 0;
   margin: 0;

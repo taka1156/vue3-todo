@@ -94,4 +94,32 @@ a {
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .App-logo {
+    height: 30vh;
+    width: 90vh;
+  }
+
+  .triangle--one {
+    top: 10px;
+    left: 18vw;
+  }
+
+  .triangle--two {
+    left: 28vw;
+  }
+
+  .triangle--three {
+    top: 135px;
+    left: 37.5vw;
+  }
+
+  @keyframes godown {
+    100% {
+      opacity: 1;
+      top: 135px;
+    }
+  }
+}
 </style>

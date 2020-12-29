@@ -1,0 +1,8 @@
+# ビルドファイル
+dist
+storybook-static
+coverage
+
+# 設定、モジュール
+.storybook
+node_modules

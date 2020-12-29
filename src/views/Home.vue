@@ -103,22 +103,32 @@ a {
 
   .triangle--one {
     top: 10px;
-    left: 18vw;
+    left: 35vw;
+    border-left: 52.5px solid transparent;
+    border-right: 52.5px solid transparent;
+    border-bottom: 90px solid #41b883;
   }
 
   .triangle--two {
-    left: 28vw;
+    top: 40px;
+    left: 40vw;
+    border-left: 35px solid transparent;
+    border-right: 35px solid transparent;
+    border-bottom: 60px solid #35495e;
   }
 
   .triangle--three {
-    top: 135px;
-    left: 37.5vw;
+    top: 70px;
+    left: 44.5vw;
+    border-left: 17.5px solid transparent;
+    border-right: 17.5px solid transparent;
+    border-bottom: 30px solid white;
   }
 
   @keyframes godown {
     100% {
       opacity: 1;
-      top: 135px;
+      top: 70px;
     }
   }
 }

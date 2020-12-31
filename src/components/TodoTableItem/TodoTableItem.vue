@@ -1,7 +1,12 @@
 <template>
   <tr class="todo-table-item">
     <td>
-      <base-input-checkbox :is-done="todo.isDone" @input="changeStateTodo" />
+      <base-input-checkbox
+        :id="`todo_check${todo.index}`"
+        :name="`todo_check${todo.index}`"
+        :checked="todo.isDone"
+        @change="changeStateTodo"
+      />
     </td>
     <td>{{ formatDate(todo.startDate) }}</td>
     <td>{{ formatDate(todo.finishDate) }}</td>

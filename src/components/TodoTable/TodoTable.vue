@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <template v-for="(todo, index) in todos" :key="`table_${index}`">
+      <template v-for="todo in todos" :key="`todo_tr${todo.index}`">
         <todo-table-item
           :todo="todo"
           @change-state-todo="changeStateTodo"

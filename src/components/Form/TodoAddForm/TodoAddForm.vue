@@ -2,24 +2,30 @@
   <div>
     <base-errors :errors="state.errors" />
     <form class="add-todo-form" @submit.prevent="addTodo">
-      <base-input-text
-        :id="'startDate'"
-        :label-text="'開始日'"
-        :type="'date'"
-        v-model:value="state.startDate"
-      />
-      <base-input-text
-        :id="'finshDate'"
-        :label-text="'終了日'"
-        :type="'date'"
-        v-model:value="state.finishDate"
-      />
-      <base-input-text
-        :id="'task'"
-        :label-text="'タスク'"
-        :type="'text'"
-        v-model:value="state.task"
-      />
+      <base-label-box :id="'startDate'" :label-text="'開始日'">
+        <base-input
+          :id="'startDate'"
+          :name="'startDate'"
+          :type="'date'"
+          v-model:value="state.startDate"
+        />
+      </base-label-box>
+      <base-label-box :id="'finshDate'" :label-text="'終了日'">
+        <base-input
+          :id="'finshDate'"
+          :name="'finshDate'"
+          :type="'date'"
+          v-model:value="state.finishDate"
+        />
+      </base-label-box>
+      <base-label-box :id="'task'" :label-text="'タスク'">
+        <base-input
+          :id="'task'"
+          :name="'task'"
+          :type="'text'"
+          v-model:value="state.task"
+        />
+      </base-label-box>
       <input class="add-todo-form__submit" type="submit" value="追加" />
     </form>
   </div>
@@ -29,7 +35,8 @@
 import { Todo } from 'src/types/todo';
 import { defineComponent, SetupContext, reactive } from 'vue';
 import BaseErros from '../../BaseErrors/BaseErros.vue';
-import BaseInputText from '../../BaseInputText/BaseInputText.vue';
+import BaseLabelBox from '../../BaseLabelBox/BaseLabelBox.vue';
+import BaseInput from '../../BaseInput/BaseInput.vue';
 
 type AddTodo = {
   startDate: string;
@@ -42,7 +49,8 @@ export default defineComponent({
   name: 'AddTodoForm',
   components: {
     'base-errors': BaseErros,
-    'base-input-text': BaseInputText
+    'base-label-box': BaseLabelBox,
+    'base-input': BaseInput
   },
   emits: ['add-todo'],
   setup(props, context: SetupContext) {

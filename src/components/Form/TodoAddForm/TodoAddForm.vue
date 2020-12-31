@@ -6,24 +6,21 @@
         :id="'startDate'"
         :label-text="'開始日'"
         :type="'date'"
-        :value="state.startDate"
-        @input="state.startDate = $event"
+        v-model:value="state.startDate"
       />
       <base-input-text
         :id="'finshDate'"
         :label-text="'終了日'"
         :type="'date'"
-        :value="state.finishDate"
-        @input="state.finishDate = $event"
+        v-model:value="state.finishDate"
       />
       <base-input-text
         :id="'task'"
         :label-text="'タスク'"
         :type="'text'"
-        :value="state.task"
-        @input="state.task = $event"
+        v-model:value="state.task"
       />
-      <input type="submit" value="追加" />
+      <input class="add-todo-form__submit" type="submit" value="追加" />
     </form>
   </div>
 </template>
@@ -110,5 +107,10 @@ export default defineComponent({
   padding: 10px;
   margin: 15px auto;
   border: 1px solid #41b883;
+}
+
+.add-todo-form__submit {
+  margin: 0 auto;
+  width: 80%;
 }
 </style>

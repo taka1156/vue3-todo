@@ -1,9 +1,15 @@
 <template>
   <div class="base-input-text">
-    <label class="base-input-text--label" :for="id">
+    <label class="base-input-text__label" :for="id">
       {{ labelText }}
     </label>
-    <input :id="id" :type="type" :value="value" @input="updateInput" />
+    <input
+      class="base-input-text__input"
+      :id="id"
+      :type="type"
+      :value="value"
+      @input="updateInput"
+    />
   </div>
 </template>
 
@@ -30,11 +36,11 @@ export default defineComponent({
       required: true
     }
   },
-  emits: ['input'],
+  emits: ['update:value'],
   setup(props, context: SetupContext) {
     const updateInput = (e: Event): void => {
       if (e.target instanceof HTMLInputElement) {
-        context.emit('input', e.target.value);
+        context.emit('update:value', e.target.value);
       }
     };
     return { updateInput, props };
@@ -49,7 +55,12 @@ export default defineComponent({
   margin: 1.5px;
 }
 
-.base-input-text--label {
+.base-input-text__label {
   text-align: left;
+}
+
+.base-input-text__input {
+  width: 100%;
+  font-size: 16px;
 }
 </style>

@@ -4,10 +4,9 @@
       :id="'searchText'"
       :label-text="'検索ワード'"
       :type="'text'"
-      :value="state.seachText"
-      @input="state.seachText = $event"
+      v-model:value="state.seachText"
     />
-    <input type="submit" value="検索" />
+    <input class="search-todo-form__submit" type="submit" value="検索" />
   </form>
 </template>
 
@@ -50,5 +49,10 @@ export default defineComponent({
   padding: 10px;
   margin: 15px auto;
   border: 1px solid #41b883;
+}
+
+.search-todo-form__submit {
+  margin: 0 auto;
+  width: 80%;
 }
 </style>

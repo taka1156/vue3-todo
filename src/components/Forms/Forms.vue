@@ -14,8 +14,8 @@
 import { Todo } from '@/types/todo';
 import { defineComponent, SetupContext, reactive } from 'vue';
 import BaseBtn from '../BaseBtn/BaseBtn.vue';
-import AddTodoForm from '../Form/AddTodoForm/AddTodoForm.vue';
-import SearchTodoForm from '../Form/SearchTodoForm/SearchTodoForm.vue';
+import AddTodoForm from '../Form/TodoAddForm/TodoAddForm.vue';
+import SearchTodoForm from '../Form/TodoSearchForm/TodoSearchForm.vue';
 
 type Forms = {
   status: boolean;

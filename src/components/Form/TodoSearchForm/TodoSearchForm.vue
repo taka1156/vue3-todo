@@ -1,18 +1,21 @@
 <template>
   <form class="search-todo-form" @submit.prevent="searchTodo">
-    <base-input-text
-      :id="'searchText'"
-      :label-text="'検索ワード'"
-      :type="'text'"
-      v-model:value="state.seachText"
-    />
+    <base-label-box :id="'searchText'" :label-text="'検索ワード'">
+      <base-input
+        :id="'searchText'"
+        :name="'searchText'"
+        :type="'text'"
+        v-model:value="state.seachText"
+      />
+    </base-label-box>
     <input class="search-todo-form__submit" type="submit" value="検索" />
   </form>
 </template>
 
 <script lang="ts">
 import { defineComponent, SetupContext, reactive } from 'vue';
-import BaseInputText from '../../BaseInputText/BaseInputText.vue';
+import BaseLabelBox from '../../BaseLabelBox/BaseLabelBox.vue';
+import BaseInput from '../../BaseInput/BaseInput.vue';
 
 type SearchTodo = {
   seachText: string;
@@ -21,7 +24,8 @@ type SearchTodo = {
 export default defineComponent({
   name: 'SearchTodoForm',
   components: {
-    'base-input-text': BaseInputText
+    'base-label-box': BaseLabelBox,
+    'base-input': BaseInput
   },
   emits: ['search-todo'],
   setup(props, context: SetupContext) {

@@ -1,16 +1,12 @@
 <template>
-  <div class="base-input-text">
-    <label class="base-input-text__label" :for="id">
-      {{ labelText }}
-    </label>
-    <input
-      class="base-input-text__input"
-      :id="id"
-      :type="type"
-      :value="value"
-      @input="updateInput"
-    />
-  </div>
+  <input
+    class="base-input"
+    :id="id"
+    :name="name"
+    :type="type"
+    :value="value"
+    @input="updateInput"
+  />
 </template>
 
 <script lang="ts">
@@ -23,7 +19,7 @@ export default defineComponent({
       type: String as PropType<string>,
       required: true
     },
-    labelText: {
+    name: {
       type: String as PropType<string>,
       required: true
     },
@@ -49,17 +45,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.base-input-text {
-  display: flex;
-  flex-direction: column;
-  margin: 1.5px;
-}
-
-.base-input-text__label {
-  text-align: left;
-}
-
-.base-input-text__input {
+.base-input {
   width: 100%;
   font-size: 16px;
 }

@@ -1,8 +1,10 @@
 <template>
   <input
-    type="checkbox"
     class="base-input-checkbox"
-    :value="isDone"
+    :id="id"
+    type="checkbox"
+    :name="name"
+    :checked="checked"
     @chenge="updateChecked"
   />
 </template>
@@ -13,14 +15,25 @@ import { defineComponent, SetupContext, PropType } from 'vue';
 export default defineComponent({
   name: 'BaseInputCheckbox',
   props: {
-    isDone: {
+    id: {
+      type: String as PropType<string>,
+      required: true
+    },
+    name: {
+      type: String as PropType<string>,
+      required: true
+    },
+    checked: {
       type: Boolean as PropType<boolean>,
       required: true
     }
   },
+  emits: ['update:chceked'],
   setup(props, context: SetupContext) {
-    const updateChecked = () => {
-      context.emit('input');
+    const updateChecked = (e: Event) => {
+      if (e.target instanceof HTMLInputElement) {
+        context.emit('update:chceked', e.target.checked);
+      }
     };
 
     return { updateChecked };
